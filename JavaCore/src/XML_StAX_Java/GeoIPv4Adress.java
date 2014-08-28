@@ -78,7 +78,7 @@ public class GeoIPv4Adress
   }
   public static byte[] parse(String ip)
   {
-    final String[] strings = ip.split("\.");
+    final String[] strings = ip.split("\\.");
     if(strings.length != SIZE)
       throw new IllegalArgumentException("Invalid input string - '" + ip + "'");
     byte[] bytes = new byte[SIZE];
