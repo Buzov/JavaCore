@@ -115,7 +115,7 @@ class RectPanel extends Panel
   {
     Graphics g = getGraphics();
     int rColor, gColor, bColor;
-    int x, y, width, height;
+    int x, y, width, height, dx, dy;
 
     while(true)
     {
@@ -123,6 +123,8 @@ class RectPanel extends Panel
       {
         x = (int)((dm.width + 1) * Math.random());
         y = (int)((dm.height + 1) * Math.random());
+        dx = (int)((x + 50) * Math.random());
+        dy = (int)((y + 50) * Math.random());
       
         width = (int)((dm.width - 2) * Math.random()) / 2;
 	height = (int)((dm.height - 2)* Math.random()) / 2;
@@ -133,6 +135,7 @@ class RectPanel extends Panel
       
         g.setColor(new Color(rColor, gColor, bColor));
         g.fillRect(x, y, width, height);
+        //g.drawLine(x,y,dx,dx);
       }	
       
       try

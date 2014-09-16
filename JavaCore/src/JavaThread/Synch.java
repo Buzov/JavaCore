@@ -2,14 +2,14 @@ package JavaThread;
 
 //This program is not synchronized.
 class Callme {
-synchronized void call(String msg) {
+ /*synchronized*/ void call(String msg) {
  System.out.print("[" + msg);
  try {
    Thread.sleep(1000);
  } catch(InterruptedException e) {
    System.out.println("Interrupted");
  }
- System.out.println("]");
+ System.out.println("]"+msg);
 }
 }
 
@@ -33,9 +33,15 @@ public void run() {
 class Synch {
 public static void main(String args[]) {
  Callme target = new Callme();
+ 
+ 
+ for(int i = 0; i<1000; i++){
+	 new Caller(target, "Hello"+i);
+ }
+ 
  Caller ob1 = new Caller(target, "Hello");
  Caller ob2 = new Caller(target, "Synchronized");
-Caller ob3 = new Caller(target, "World");
+ Caller ob3 = new Caller(target, "World");
 
  // wait for threads to end
  try {
